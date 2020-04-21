@@ -1,0 +1,22 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tt-ibm-mqadvanced-server-tls-build
+  namespace: da-build-project
+spec:
+  ports:
+    - name: 1414-tcp
+      protocol: TCP
+      port: 1414
+      targetPort: 1414
+    - name: 9157-tcp
+      protocol: TCP
+      port: 9157
+      targetPort: 9157
+    - name: 9443-tcp
+      protocol: TCP
+      port: 9443
+      targetPort: 9443
+  selector:
+    app: tt-ibm-mqadvanced-server-tls-build
+    deploymentconfig: tt-ibm-mqadvanced-server-tls-build

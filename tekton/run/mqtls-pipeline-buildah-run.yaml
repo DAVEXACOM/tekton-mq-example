@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  generateName: mqtls-pr-bah-
+spec:
+  pipelineRef:
+    name: mqtls-build-and-deploy-pipeline-buildah
+  resources:
+    - name: git-source
+      resourceRef:
+        name: mqtls-git
+  params:
+    - name: pathToYamlFile
+      value: "mqdeploymentconfig/ibmmq.yaml"
+    - name: pathToContext
+      value: ./     
+    - name: imageUrl
+      value: image-registry.openshift-image-registry.svc:5000/da-build-project/ibm-mqadvanced-server-tls-build
+    - name: imageTag
+      value: "latest"

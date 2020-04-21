@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: tt-ibm-mqadvanced-server-tls-build
+  namespace: da-build-project
+  labels:
+    app: tt-ibm-mqadvanced-server-tls-build
+spec:
+  host: >-
+    tt-ibm-mqadvanced-server-tls-build-da-build-project.dacluster-0511fc923b97b25b240630e79d362861-0000.au-syd.containers.appdomain.cloud
+  subdomain: ''
+  to:
+    kind: Service
+    name: tt-ibm-mqadvanced-server-tls-build
+    weight: 100
+  port:
+    targetPort: 1414-tcp
+  wildcardPolicy: None

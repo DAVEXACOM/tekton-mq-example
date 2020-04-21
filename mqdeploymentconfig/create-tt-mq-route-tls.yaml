@@ -1,0 +1,33 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: tls-tlsprqm1p-tt
+  namespace: da-build-project
+  selfLink: /apis/route.openshift.io/v1/namespaces/da-build-project/routes/tls-tlsprqm1p
+  uid: f303f3d0-3743-4f47-b283-329cb9411068
+  resourceVersion: '51591'
+  creationTimestamp: '2020-04-20T03:38:20Z'
+  labels:
+    app: tt-ibm-mqadvanced-server-tls-build
+spec:
+  host: tlsprqm12e-svrconn.chl.mq.ibm.com
+  to:
+    kind: Service
+    name: tt-ibm-mqadvanced-server-tls-build
+    weight: 100
+  port:
+    targetPort: 1414-tcp
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: tlsprqm12e-svrconn.chl.mq.ibm.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2020-04-20T03:38:19Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: >-
+        dacluster-0511fc923b97b25b240630e79d362861-0000.au-syd.containers.appdomain.cloud
