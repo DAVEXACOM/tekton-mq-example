@@ -8,7 +8,7 @@ spec:
       type: git
   params:
     - name: pathToContext
-      description: The path to the build context, used by Kaniko - within the workspace
+      description: The path to the build context, used by buildah - within the workspace
       default: ./
     - name: pathToYamlFile
       description: The path to the yaml file to deploy within the git source
@@ -17,9 +17,9 @@ spec:
     - name: imageTag
       description: Tag to apply to the built image
   tasks:
-  - name: source-to-image-buildah
+  - name: mqtls-source-to-image-buildah
     taskRef:
-      name: source-to-image-buildah
+      name: mqtls-source-to-image-buildah
     params:
       - name: pathToContext
         value: "$(params.pathToContext)"
@@ -31,11 +31,11 @@ spec:
       inputs:
         - name: git-source
           resource: git-source
-  - name: deploy-to-cluster
+  - name: mqtls-deploy-to-cluster
     taskRef:
-      name: deploy-using-kubectl
+      name: mqtls-deploy-using-kubectl
     runAfter:
-      - source-to-image-buildah
+      - mqtls-source-to-image-buildah
     params:
       - name: pathToYamlFile
         value:  "$(params.pathToYamlFile)"
