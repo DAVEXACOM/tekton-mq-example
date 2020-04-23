@@ -1,10 +1,10 @@
 apiVersion: tekton.dev/v1alpha1
-kind: PipelineRun
+kind: TaskRun
 metadata:
-  generateName: mqtls-pr-bah-
+  generateName: mqtls-tr-bah-
 spec:
-  pipelineRef:
-    name: mqtls-build-and-deploy-pipeline-buildah
+  taskRef:
+    name: mqtls-source-to-image-buildah
   resources:
     - name: git-source
       resourceRef:

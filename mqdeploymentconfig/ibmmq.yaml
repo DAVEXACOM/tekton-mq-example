@@ -20,23 +20,23 @@ spec:
       imageChangeParams:
         automatic: true
         containerNames:
-          - ibm-mqadvanced-server-tls-build
+          - tt-ibm-mqadvanced-server-tls-build
         from:
           kind: ImageStreamTag
           namespace: da-build-project
-          name: 'ibm-mqadvanced-server-tls-build:latest'
+          name: 'tt-ibm-mqadvanced-server-tls-build:latest'
   replicas: 1
   selector:
     app: tt-ibm-mqadvanced-server-tls-build
-    deploymentconfig: ibm-mqadvanced-server-tls-build
+    deploymentconfig: tt-ibm-mqadvanced-server-tls-build
   template:
     metadata:
       labels:
         app: tt-ibm-mqadvanced-server-tls-build
-        deploymentconfig: ibm-mqadvanced-server-tls-build
+        deploymentconfig: tt-ibm-mqadvanced-server-tls-build
     spec:
       containers:
-        - name: ibm-mqadvanced-server-tls-build
+        - name: tt-ibm-mqadvanced-server-tls-build
           image: >-
             __IMAGE__
           ports:
