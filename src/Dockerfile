@@ -1,4 +1,4 @@
-﻿FROM ibm-mqadvanced-server-integration:9.1.3.0-r4-amd64
+﻿FROM davexacom/ibm-mqadvanced-server-integration:9.1.3.0-r4-amd64
 
 USER mqm
 
