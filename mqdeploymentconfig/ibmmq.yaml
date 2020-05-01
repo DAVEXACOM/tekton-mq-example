@@ -24,7 +24,7 @@ spec:
         from:
           kind: ImageStreamTag
           namespace: da-build-project
-          name: 'tt-ibm-mqadvanced-server-tls-build:latest'
+          name: 'ibm-mqadvanced-server-tls-build:latest'
   replicas: 1
   selector:
     app: tt-ibm-mqadvanced-server-tls-build

@@ -10,6 +10,8 @@ spec:
       resourceRef:
         name: mqtls-git
   params:
+    - name: qmgrName
+      value: mytektqmgr
     - name: pathToYamlFile
       value: "mqdeploymentconfig/ibmmq.yaml"
     - name: pathToContext

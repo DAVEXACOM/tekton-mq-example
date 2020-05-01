@@ -5,16 +5,16 @@ metadata:
 spec:
   taskRef:
     name: mqtls-source-to-image-buildah
-  resources:
-    - name: git-source
+  serviceAccountName: pipeline
+  inputs:
+   resources:
+    - name: source
       resourceRef:
-        name: mqtls-git
-  params:
-    - name: pathToYamlFile
-      value: "mqdeploymentconfig/ibmmq.yaml"
+        name: git-source
+   params:
     - name: pathToContext
       value: ./     
     - name: imageUrl
-      value: image-registry.openshift-image-registry.svc:5000/da-build-project/tt-ibm-mqadvanced-server-tls-build
+      value: image-registry.openshift-image-registry.svc:5000/da-build-project/ibm-mqadvanced-server-tls-build
     - name: imageTag
       value: "latest"
