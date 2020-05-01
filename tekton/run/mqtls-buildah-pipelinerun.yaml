@@ -1,14 +1,14 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineRun
 metadata:
-  generateName: mqtls-pr-bah-
+  generateName: mqtls-pr-bahdep-
 spec:
   pipelineRef:
     name: mqtls-build-and-deploy-pipeline-buildah
   resources:
-    - name: git-source
+    - name: source
       resourceRef:
-        name: mqtls-git
+        name: git-source        
   params:
     - name: qmgrName
       value: mytektqmgr
@@ -17,6 +17,6 @@ spec:
     - name: pathToContext
       value: ./     
     - name: imageUrl
-      value: image-registry.openshift-image-registry.svc:5000/da-build-project/tt-ibm-mqadvanced-server-tls-build
+      value: image-registry.openshift-image-registry.svc:5000/da-build-project/ibm-mqadvanced-server-tls-build
     - name: imageTag
       value: "latest"
