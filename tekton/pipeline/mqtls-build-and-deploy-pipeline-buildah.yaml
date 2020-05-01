@@ -7,6 +7,9 @@ spec:
     - name: git-source
       type: git
   params:
+    - name: qmgrName
+      description: the queue manager name
+      default: mytektqmgr
     - name: pathToContext
       description: The path to the build context, used by buildah - within the workspace
       default: ./
@@ -29,7 +32,7 @@ spec:
         value: "$(params.imageTag)"
     resources:
       inputs:
-        - name: git-source
+        - name: source
           resource: git-source
   - name: mqtls-deploy-to-cluster
     taskRef:
@@ -37,6 +40,8 @@ spec:
     runAfter:
       - mqtls-source-to-image-buildah
     params:
+      - name: qmgrName
+        value: mytektqmgr
       - name: pathToYamlFile
         value:  "$(params.pathToYamlFile)"
       - name: imageUrl
@@ -45,5 +50,5 @@ spec:
         value: "$(params.imageTag)"
     resources:
       inputs:
-        - name: git-source
+        - name: source
           resource: git-source

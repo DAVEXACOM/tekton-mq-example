@@ -5,13 +5,14 @@ metadata:
 spec:
   pipelineRef:
     name: mqtls-build-and-deploy-pipeline-buildah
+  serviceAccountName: pipeline
   resources:
-    - name: source
+    - name: git-source
       resourceRef:
         name: git-source        
   params:
     - name: qmgrName
-      value: mytektqmgr
+      value: datektqmgrx
     - name: pathToYamlFile
       value: "mqdeploymentconfig/ibmmq.yaml"
     - name: pathToContext
