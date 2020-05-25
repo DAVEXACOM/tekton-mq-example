@@ -30,10 +30,11 @@ spec:
   - name: build
     image: quay.io/buildah/stable:v1.11.0
     workingDir: /workspace/source
-#   command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)', '--layers', '-f', '$(inputs.params.pathToContext):$(inputs.params.pathToDockerFile)', '-t', '$(inputs.params.imageUrl):$(inputs.params.imageTag)', '.']
+#ex command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)', '--layers', '-f', '$(inputs.params.pathToContext):$(inputs.params.pathToDockerFile)', '-t', '$(inputs.params.imageUrl):$(inputs.params.imageTag)', '.']
 #wk command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)','-t', 'ace11002mqc91ms2:latest','github.com/DAVEXACOM/ibm-ace-mqc-soe-ms2-build']  
 #wk command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)','-t', 'ace11002mqc91ms2:latest','github.com/DAVEXACOM/ibm-ace-mqc-soe-ms2-build']
-    command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)','-t', '$(inputs.params.imageUrl):$(inputs.params.imageTag)','github.com/DAVEXACOM/ibm-mqadvanced-server-tls-tekton']
+#wk command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)','-t', '$(inputs.params.imageUrl):$(inputs.params.imageTag)','github.com/DAVEXACOM/ibm-mqadvanced-server-tls-tekton']
+    command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)','-t', '$(inputs.params.imageUrl):$(inputs.params.imageTag)','.']
 
     volumeMounts:
     - name: varlibcontainers
