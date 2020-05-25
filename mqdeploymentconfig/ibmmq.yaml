@@ -35,6 +35,11 @@ spec:
         app: tt-ibm-mqadvanced-server-tls-build
         deploymentconfig: tt-ibm-mqadvanced-server-tls-build
     spec:
+      volumes:
+        - name: mq-config-volumes
+          configMap:
+            name: __QMGRNAME__
+            defaultMode: 420
       containers:
         - name: tt-ibm-mqadvanced-server-tls-build
           image: >-
@@ -52,6 +57,10 @@ spec:
             - name: MQ_QMGR_NAME
               value: __QMGRNAME__              
           resources: {}
+          volumeMounts:
+            - name: mq-config-volumes
+              mountPath: /etc/mqm/example.mqsc
+              subPath: example.mqsc
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
